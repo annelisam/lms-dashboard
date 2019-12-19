@@ -8,7 +8,7 @@ import rootReducer from "./store/reducers/rootReducer";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { createFirestoreInstance, getFirestore } from "redux-firestore";
-import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
+import { ReactReduxFirebaseProvider, getFirebase, authIsReady } from "react-redux-firebase";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
@@ -42,6 +42,7 @@ const rrfProps = {
   dispatch: store.dispatch,
   createFirestoreInstance // <- needed if using firestore
 };
+
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
